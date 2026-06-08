@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { View, Text } from '@tarojs/components';
 import Taro, { useRouter } from '@tarojs/taro';
 import classnames from 'classnames';
@@ -76,7 +76,7 @@ const TaskDetailPage = () => {
   };
 
   const renderStars = (difficulty: number) => {
-    const stars = [];
+    const stars: JSX.Element[] = [];
     for (let i = 1; i <= 5; i++) {
       stars.push(
         <Text key={i} className={classnames(styles.starItem, i > difficulty && styles.starEmpty)}>

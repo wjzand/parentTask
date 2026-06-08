@@ -1,0 +1,266 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-lg $page-padding;
+  border-radius: 0 0 $radius-xl $radius-xl;
+}
+
+.headerEmoji {
+  font-size: 72rpx;
+}
+
+.headerInfo {
+  flex: 1;
+}
+
+.headerTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: #2D1B0E;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.headerSub {
+  font-size: $font-size-sm;
+  color: rgba(45, 27, 14, 0.6);
+  display: block;
+}
+
+.empty {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xl * 2 0;
+  gap: $spacing-md;
+}
+
+.emptyEmoji {
+  font-size: 80rpx;
+}
+
+.emptyText {
+  font-size: $font-size-lg;
+  color: $color-text-secondary;
+  font-weight: $font-weight-semibold;
+}
+
+.emptyHint {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.storyList {
+  height: calc(100vh - 160rpx);
+  padding: $spacing-lg $page-padding;
+}
+
+.storyCard {
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.cardTimeline {
+  @include flex-center;
+  flex-direction: column;
+  width: 48rpx;
+  flex-shrink: 0;
+}
+
+.timelineDot {
+  @include flex-center;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: $radius-round;
+  background: $color-success;
+  flex-shrink: 0;
+}
+
+.timelineDotText {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  font-weight: $font-weight-bold;
+}
+
+.timelineLine {
+  width: 4rpx;
+  flex: 1;
+  min-height: 80rpx;
+  background: rgba($color-success, 0.3);
+}
+
+.cardContent {
+  flex: 1;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  padding: $spacing-md $spacing-lg;
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-md;
+  flex-wrap: wrap;
+}
+
+.cardEmoji {
+  font-size: 40rpx;
+}
+
+.cardTitleRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.cardDate {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-left: auto;
+}
+
+.treasureTag {
+  padding: 2rpx $spacing-sm;
+  background: rgba($color-badge-gold, 0.12);
+  border-radius: $radius-round;
+}
+
+.treasureTagText {
+  font-size: 18rpx;
+  color: $color-primary-dark;
+  font-weight: $font-weight-medium;
+}
+
+.storyBlock {
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-md;
+  background: rgba($color-primary, 0.05);
+  border-radius: $radius-md;
+  margin-bottom: $spacing-sm;
+}
+
+.storyEmoji {
+  font-size: 36rpx;
+  flex-shrink: 0;
+}
+
+.storyText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  white-space: normal;
+}
+
+.checkinNote {
+  padding: $spacing-sm $spacing-md;
+  background: rgba($color-success, 0.05);
+  border-radius: $radius-md;
+}
+
+.checkinNoteLabel {
+  font-size: $font-size-xs;
+  color: $color-success;
+  font-weight: $font-weight-semibold;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.checkinNoteText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  line-height: $line-height-normal;
+  display: block;
+}
+
+.finaleCard {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xl;
+  background: linear-gradient(180deg, #FFF1B8 0%, #FFE58F 100%);
+  border-radius: $radius-xl;
+  margin-top: $spacing-md;
+  gap: $spacing-md;
+}
+
+.finaleEmoji {
+  font-size: 80rpx;
+}
+
+.finaleTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.finaleText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  text-align: center;
+  line-height: $line-height-loose;
+}
+
+.finaleBadge {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-md $spacing-xl;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: $radius-lg;
+  gap: $spacing-xs;
+}
+
+.finaleBadgeEmoji {
+  font-size: 56rpx;
+}
+
+.finaleBadgeName {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.continueCard {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xl;
+  background: $color-bg-card;
+  border-radius: $radius-xl;
+  margin-top: $spacing-md;
+  border: 2rpx dashed $color-border;
+  gap: $spacing-md;
+}
+
+.continueEmoji {
+  font-size: 64rpx;
+}
+
+.continueTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.continueText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  text-align: center;
+  line-height: $line-height-loose;
+}

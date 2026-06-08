@@ -14,6 +14,8 @@ export default defineAppConfig({
     'pages/custom-task/index',
     'pages/messages/index',
     'pages/child-info/index',
+    'pages/adventure-map/index',
+    'pages/adventure-story/index',
     'pages/favorites/index',
     'pages/settings/index'
   ],

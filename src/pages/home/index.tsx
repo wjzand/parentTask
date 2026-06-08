@@ -6,12 +6,14 @@ import dayjs from 'dayjs';
 import TaskCard from '@/components/TaskCard';
 import WeekProgress from '@/components/WeekProgress';
 import { useTaskStore } from '@/store/useTaskStore';
+import { useAdventureStore } from '@/store/useAdventureStore';
 import { useTimer } from '@/hooks/useTimer';
 import { getCompanionQuote, getWeatherEmoji } from '@/utils';
 import styles from './index.module.scss';
 
 const HomePage = () => {
   const { todayTask, claimTask, startTask, completeTask, changeTask, weekCheckins } = useTaskStore();
+  const { currentMap } = useAdventureStore();
   const { formattedTime, start: startTimer, stop: stopTimer } = useTimer();
   const [showDetail, setShowDetail] = useState(false);
   const [quote] = useState(getCompanionQuote());
@@ -134,6 +136,22 @@ const HomePage = () => {
           <Text className={styles.completedSubText}>明天还有新的精彩任务等你哦</Text>
         </View>
       )}
+
+      <View
+        className={styles.adventureEntry}
+        onClick={() => Taro.navigateTo({ url: '/pages/adventure-map/index' })}
+      >
+        <Text className={styles.adventureEntryEmoji}>{currentMap.emoji}</Text>
+        <View className={styles.adventureEntryInfo}>
+          <Text className={styles.adventureEntryTitle}>{currentMap.title}</Text>
+          <Text className={styles.adventureEntryProgress}>
+            已航行 {currentMap.unlockedCount}/{currentMap.totalNodes} 站
+          </Text>
+        </View>
+        <View className={styles.adventureEntryBtn}>
+          <Text className={styles.adventureEntryBtnText}>查看地图</Text>
+        </View>
+      </View>
 
       <View className={styles.progressSection}>
         <WeekProgress completed={weekCheckins} total={7} />

@@ -177,9 +177,57 @@ export interface AbilityRadar {
   physical: number;
 }
 
+export type AdventureTheme = 'ocean' | 'forest' | 'space' | 'garden' | 'desert' | 'candy';
+
+export type MapNodeStatus = 'locked' | 'current' | 'unlocked';
+
+export type TreasureType = 'points_30' | 'points_50' | 'points_100' | 'sticker' | 'lottery' | 'coupon';
+
+export interface MapNode {
+  id: string;
+  order: number;
+  name: string;
+  emoji: string;
+  status: MapNodeStatus;
+  isTreasure: boolean;
+  treasureType?: TreasureType;
+  treasureOpened: boolean;
+  storyFragment: string;
+  storyEmoji: string;
+  unlockedAt?: string;
+  checkinId?: string;
+}
+
+export interface AdventureMap {
+  id: string;
+  theme: AdventureTheme;
+  month: string;
+  title: string;
+  subtitle: string;
+  emoji: string;
+  bgGradient: string;
+  accentColor: string;
+  nodes: MapNode[];
+  totalNodes: number;
+  unlockedCount: number;
+  isCompleted: boolean;
+  completionBadge?: Badge;
+}
+
+export interface AdventureStoryEntry {
+  nodeId: string;
+  nodeName: string;
+  nodeEmoji: string;
+  storyFragment: string;
+  storyEmoji: string;
+  unlockedAt: string;
+  checkinNote?: string;
+  checkinImages?: string[];
+}
+
 export interface Notification {
   id: string;
-  type: 'task_push' | 'checkin_remind' | 'family_interact' | 'badge_earned' | 'report';
+  type: 'task_push' | 'checkin_remind' | 'family_interact' | 'badge_earned' | 'report' | 'adventure_new_map' | 'adventure_treasure' | 'adventure_near_end' | 'adventure_completed';
   title: string;
   content: string;
   read: boolean;
@@ -269,4 +317,22 @@ export const AGE_RANGE_LABELS: Record<AgeRange, string> = {
   '6-8': '大童 6-8岁',
   '8-10': '学龄 8-10岁',
   '10-12': '少年 10-12岁'
+};
+
+export const ADVENTURE_THEME_CONFIG: Record<AdventureTheme, { title: string; emoji: string; bgGradient: string; accentColor: string; subtitle: string }> = {
+  ocean: { title: '海洋奇旅', emoji: '🌊', bgGradient: 'linear-gradient(180deg, #E6F7FF 0%, #BAE7FF 50%, #91D5FF 100%)', accentColor: '#1890FF', subtitle: '帮助小海龟找到回家的路' },
+  forest: { title: '森林冒险', emoji: '🌲', bgGradient: 'linear-gradient(180deg, #F6FFED 0%, #D9F7BE 50%, #B7EB8F 100%)', accentColor: '#52C41A', subtitle: '寻找神奇草药治病救人' },
+  space: { title: '太空漫游', emoji: '🚀', bgGradient: 'linear-gradient(180deg, #F9F0FF 0%, #EFDBFF 50%, #D3ADF7 100%)', accentColor: '#722ED1', subtitle: '收集星星碎片点亮星座' },
+  garden: { title: '花园秘境', emoji: '🌺', bgGradient: 'linear-gradient(180deg, #FFF0F6 0%, #FFD6E7 50%, #FFADD2 100%)', accentColor: '#EB2F96', subtitle: '寻找传说中的七色花' },
+  desert: { title: '沙漠寻宝', emoji: '🏜️', bgGradient: 'linear-gradient(180deg, #FFFBE6 0%, #FFF1B8 50%, #FFE58F 100%)', accentColor: '#FA8C16', subtitle: '穿越沙漠找到古老宝藏' },
+  candy: { title: '糖果王国', emoji: '🍭', bgGradient: 'linear-gradient(180deg, #FFF0F6 0%, #FFD6E7 30%, #EFDBFF 70%, #D9F7BE 100%)', accentColor: '#F759AB', subtitle: '寻找糖果王国的秘密配方' }
+};
+
+export const TREASURE_TYPE_CONFIG: Record<TreasureType, { label: string; emoji: string; value: number }> = {
+  points_30: { label: '陪伴积分×30', emoji: '💰', value: 30 },
+  points_50: { label: '陪伴积分×50', emoji: '💰', value: 50 },
+  points_100: { label: '陪伴积分×100', emoji: '💎', value: 100 },
+  sticker: { label: '限定贴纸', emoji: '✨', value: 0 },
+  lottery: { label: '绘本抽奖机会', emoji: '🎁', value: 0 },
+  coupon: { label: '亲子优惠券', emoji: '🎫', value: 0 }
 };

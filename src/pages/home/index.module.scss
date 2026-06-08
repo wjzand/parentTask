@@ -236,3 +236,57 @@
     transform: scale(0.98);
   }
 }
+
+.adventureEntry {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  margin: 0 $page-padding $spacing-lg;
+  background: linear-gradient(135deg, #E6F7FF 0%, #BAE7FF 100%);
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.adventureEntryEmoji {
+  font-size: 56rpx;
+}
+
+.adventureEntryInfo {
+  flex: 1;
+}
+
+.adventureEntryTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  color: #096DD9;
+  display: block;
+  margin-bottom: 4rpx;
+}
+
+.adventureEntryProgress {
+  font-size: $font-size-xs;
+  color: rgba(9, 109, 217, 0.7);
+  display: block;
+}
+
+.adventureEntryBtn {
+  @include button-reset;
+  padding: 0 $spacing-lg;
+  height: $button-height-sm;
+  border-radius: $radius-round;
+  background: #1890FF;
+  transition: all $transition-base;
+}
+
+.adventureEntryBtnText {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}

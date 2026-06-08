@@ -1,0 +1,449 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding-bottom: 120rpx;
+}
+
+.mapHeader {
+  padding: $spacing-lg $page-padding $spacing-md;
+  border-radius: 0 0 $radius-xl $radius-xl;
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-md;
+}
+
+.mapEmoji {
+  font-size: 80rpx;
+}
+
+.headerInfo {
+  flex: 1;
+}
+
+.mapTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #2D1B0E;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.mapSubtitle {
+  font-size: $font-size-sm;
+  color: rgba(45, 27, 14, 0.6);
+  display: block;
+}
+
+.progressRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.progressBar {
+  flex: 1;
+  height: 16rpx;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  border-radius: $radius-round;
+  transition: width $transition-slow;
+}
+
+.progressText {
+  font-size: $font-size-sm;
+  color: rgba(45, 27, 14, 0.7);
+  font-weight: $font-weight-semibold;
+  white-space: nowrap;
+}
+
+.mapScroll {
+  white-space: nowrap;
+  margin: $spacing-lg 0;
+  padding: $spacing-md 0;
+}
+
+.mapTrack {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 $spacing-lg;
+  gap: 0;
+}
+
+.nodeWrapper {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.pathLine {
+  width: 60rpx;
+  height: 6rpx;
+  background: $color-border;
+  flex-shrink: 0;
+  transition: background $transition-base;
+}
+
+.pathLineActive {
+  background: $color-success;
+}
+
+.nodeCard {
+  @include flex-center;
+  flex-direction: column;
+  width: 160rpx;
+  padding: $spacing-md $spacing-sm;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  position: relative;
+  transition: all $transition-base;
+  flex-shrink: 0;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+.nodeUnlocked {
+  border: 2rpx solid rgba($color-success, 0.3);
+}
+
+.nodeCurrent {
+  border: 3rpx solid $color-primary;
+  background: linear-gradient(180deg, #FFFDE7 0%, $color-bg-card 100%);
+}
+
+.nodeLocked {
+  opacity: 0.6;
+  background: #F5F0E8;
+}
+
+.nodeTreasure {
+  border-color: rgba($color-badge-gold, 0.4);
+  background: linear-gradient(180deg, #FFFDE7 0%, #FFF8E1 100%);
+}
+
+.nodeFinish {
+  border: 2rpx dashed rgba($color-primary, 0.4);
+  background: linear-gradient(180deg, #FFF7CC 0%, $color-bg-card 100%);
+}
+
+.nodeFinishCompleted {
+  border: 3rpx solid $color-badge-gold;
+  background: linear-gradient(180deg, #FFF1B8 0%, #FFE58F 100%);
+}
+
+.nodePulse {
+  position: absolute;
+  top: -6rpx;
+  right: -6rpx;
+  width: 24rpx;
+  height: 24rpx;
+  border-radius: $radius-round;
+  background: $color-primary;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+
+.treasureBadge {
+  position: absolute;
+  top: -12rpx;
+  right: -12rpx;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, $color-badge-gold 0%, $color-primary 100%);
+  @include flex-center;
+  box-shadow: 0 4rpx 12rpx rgba(255, 197, 61, 0.4);
+}
+
+.treasureBadgeOpened {
+  background: linear-gradient(135deg, $color-success 0%, #95DE64 100%);
+  box-shadow: 0 4rpx 12rpx rgba(115, 209, 61, 0.3);
+}
+
+.treasureBadgeText {
+  font-size: 24rpx;
+}
+
+.nodeEmoji {
+  font-size: 56rpx;
+  margin-bottom: $spacing-xs;
+}
+
+.nodeEmojiLocked {
+  font-size: 40rpx;
+  opacity: 0.5;
+}
+
+.nodeName {
+  font-size: $font-size-xs;
+  color: $color-text-primary;
+  font-weight: $font-weight-semibold;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140rpx;
+}
+
+.nodeNameLocked {
+  color: $color-text-disabled;
+}
+
+.nodeDate {
+  font-size: 18rpx;
+  color: $color-success;
+  margin-top: $spacing-xs;
+}
+
+.nodeHint {
+  font-size: 18rpx;
+  color: $color-primary-dark;
+  margin-top: $spacing-xs;
+  font-weight: $font-weight-medium;
+}
+
+.nodeFog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(160, 140, 120, 0.12);
+  border-radius: $radius-lg;
+  pointer-events: none;
+}
+
+.actionSection {
+  padding: 0 $page-padding;
+  display: flex;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.advanceBtn {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  box-shadow: $shadow-warm;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.advanceBtnText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.storyBtn {
+  @include button-reset;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  color: $color-text-secondary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  border: 2rpx solid $color-border;
+  padding: 0 $spacing-xl;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.storyBtnText {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-text-secondary;
+}
+
+.infoSection {
+  padding: 0 $page-padding;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.infoCard {
+  padding: $spacing-md $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.infoTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.infoText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  line-height: $line-height-loose;
+  display: block;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  @include flex-center;
+  z-index: 999;
+}
+
+.treasureModal {
+  width: 600rpx;
+  background: $color-bg-card;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  @include flex-center;
+  flex-direction: column;
+  animation: treasurePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes treasurePop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.treasureTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-lg;
+}
+
+.treasureBox {
+  @include flex-center;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, #FFF1B8 0%, $color-primary-light 50%, $color-primary 100%);
+  margin-bottom: $spacing-lg;
+  box-shadow: 0 8rpx 32rpx rgba(255, 197, 61, 0.3);
+}
+
+.treasureBoxEmoji {
+  font-size: 100rpx;
+  animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes shake {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+.treasureContent {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-xs;
+  margin-bottom: $spacing-lg;
+  padding: $spacing-md $spacing-xl;
+  background: rgba($color-primary, 0.08);
+  border-radius: $radius-lg;
+}
+
+.treasureContentEmoji {
+  font-size: 56rpx;
+}
+
+.treasureContentLabel {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.treasureCloseBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.storyModal {
+  width: 600rpx;
+  background: $color-bg-card;
+  border-radius: $radius-xl;
+  padding: $spacing-xl;
+  @include flex-center;
+  flex-direction: column;
+  animation: treasurePop 0.3s ease-out;
+}
+
+.storyModalTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-lg;
+}
+
+.storyModalFragment {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  text-align: center;
+  margin-bottom: $spacing-md;
+  white-space: normal;
+}
+
+.storyModalDate {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-bottom: $spacing-lg;
+}
+
+.storyModalCloseBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: rgba($color-success, 0.1);
+  color: $color-success;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  border: 2rpx solid rgba($color-success, 0.3);
+
+  &:active {
+    opacity: 0.9;
+  }
+}

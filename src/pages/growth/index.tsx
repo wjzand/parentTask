@@ -4,6 +4,7 @@ import Taro from '@tarojs/taro';
 import classnames from 'classnames';
 import { mockBadges } from '@/data/mockBadges';
 import { mockCheckins } from '@/data/mockTasks';
+import { useAdventureStore } from '@/store/useAdventureStore';
 import {
   GrowthStage,
   GROWTH_STAGE_LABELS,
@@ -26,7 +27,8 @@ const currentStage: GrowthStage = 'sapling';
 const totalCheckins = 35;
 
 const GrowthPage = () => {
-  const [activeTab, setActiveTab] = useState<'tree' | 'calendar' | 'records'>('tree');
+  const { currentMap } = useAdventureStore();
+  const [activeTab, setActiveTab] = useState<'tree' | 'calendar' | 'records' | 'adventure'>('tree');
 
   const currentMilestones = GROWTH_MILESTONES.map((m) => ({
     ...m,
@@ -157,6 +159,12 @@ const GrowthPage = () => {
           <Text>成长树</Text>
         </View>
         <View
+          className={classnames(styles.tabItem, activeTab === 'adventure' && styles.tabActive)}
+          onClick={() => setActiveTab('adventure')}
+        >
+          <Text>🗺️ 探险地图</Text>
+        </View>
+        <View
           className={classnames(styles.tabItem, activeTab === 'calendar' && styles.tabActive)}
           onClick={() => setActiveTab('calendar')}
         >
@@ -176,6 +184,41 @@ const GrowthPage = () => {
           {renderMilestones()}
           {renderBadges()}
         </>
+      )}
+      {activeTab === 'adventure' && (
+        <View className={styles.adventurePreview}>
+          <View
+            className={styles.adventurePreviewCard}
+            style={{ background: currentMap.bgGradient }}
+            onClick={() => Taro.navigateTo({ url: '/pages/adventure-map/index' })}
+          >
+            <Text className={styles.adventurePreviewEmoji}>{currentMap.emoji}</Text>
+            <Text className={styles.adventurePreviewTitle}>{currentMap.title}</Text>
+            <Text className={styles.adventurePreviewSub}>{currentMap.subtitle}</Text>
+            <View className={styles.adventurePreviewProgress}>
+              <View className={styles.adventurePreviewBar}>
+                <View
+                  className={styles.adventurePreviewFill}
+                  style={{
+                    width: `${(currentMap.unlockedCount / currentMap.totalNodes) * 100}%`,
+                    background: currentMap.accentColor
+                  }}
+                />
+              </View>
+              <Text className={styles.adventurePreviewText}>
+                {currentMap.unlockedCount}/{currentMap.totalNodes}
+              </Text>
+            </View>
+          </View>
+          <View
+            className={styles.adventureStoryEntry}
+            onClick={() => Taro.navigateTo({ url: '/pages/adventure-story/index' })}
+          >
+            <Text className={styles.adventureStoryEntryEmoji}>📖</Text>
+            <Text className={styles.adventureStoryEntryText}>查看探险手账</Text>
+            <Text className={styles.adventureStoryEntryArrow}>›</Text>
+          </View>
+        </View>
       )}
       {activeTab === 'calendar' && renderCalendar()}
       {activeTab === 'records' && renderRecords()}

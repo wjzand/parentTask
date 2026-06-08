@@ -324,3 +324,100 @@
 .calendarEmpty {
   color: $color-text-disabled;
 }
+
+.adventurePreview {
+  padding: 0 $page-padding;
+}
+
+.adventurePreviewCard {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xl;
+  border-radius: $radius-xl;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.95;
+  }
+}
+
+.adventurePreviewEmoji {
+  font-size: 120rpx;
+  margin-bottom: $spacing-md;
+}
+
+.adventurePreviewTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: #2D1B0E;
+  margin-bottom: $spacing-xs;
+}
+
+.adventurePreviewSub {
+  font-size: $font-size-sm;
+  color: rgba(45, 27, 14, 0.6);
+  margin-bottom: $spacing-lg;
+}
+
+.adventurePreviewProgress {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  width: 100%;
+}
+
+.adventurePreviewBar {
+  flex: 1;
+  height: 16rpx;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.adventurePreviewFill {
+  height: 100%;
+  border-radius: $radius-round;
+  transition: width $transition-slow;
+}
+
+.adventurePreviewText {
+  font-size: $font-size-sm;
+  color: rgba(45, 27, 14, 0.7);
+  font-weight: $font-weight-semibold;
+  white-space: nowrap;
+}
+
+.adventureStoryEntry {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.adventureStoryEntryEmoji {
+  font-size: 40rpx;
+}
+
+.adventureStoryEntryText {
+  flex: 1;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.adventureStoryEntryArrow {
+  font-size: $font-size-lg;
+  color: $color-text-tertiary;
+}

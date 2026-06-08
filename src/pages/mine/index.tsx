@@ -16,10 +16,12 @@ const MinePage = () => {
   };
 
   const menuItems = [
+    { icon: '🗺️', text: '探险地图', url: '/pages/adventure-map/index', extra: '' },
     { icon: '🏅', text: '我的徽章', url: '/pages/badges/index', extra: `${stats.totalBadges}枚` },
     { icon: '💰', text: '积分兑换', url: '/pages/points/index', extra: '' },
     { icon: '❤️', text: '我的收藏', url: '/pages/favorites/index', extra: '' },
     { icon: '📝', text: '自定义任务', url: '/pages/custom-task/index', extra: '' },
+    { icon: '👶', text: '孩子管理', url: '/pages/child-info/index', extra: '' },
     { icon: '🔔', text: '消息通知', url: '/pages/messages/index', extra: '', dot: true },
     { icon: '📊', text: '陪伴报告', url: '/pages/report/index', extra: '' },
     { icon: '⚙️', text: '设置', url: '/pages/settings/index', extra: '' }
