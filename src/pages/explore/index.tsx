@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { View, Text, Input, ScrollView } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
@@ -69,7 +69,7 @@ const ExplorePage = () => {
   }, [allTasks, activeTab, ageFilter, durationFilter, searchText]);
 
   const handleTaskClick = (taskId: string) => {
-    Taro.navigateTo({ url: `/pages/taskDetail/index?id=${taskId}` });
+    Taro.navigateTo({ url: `/pages/task-detail/index?id=${taskId}` });
   };
 
   const handleFavorite = (taskId: string, e: any) => {
@@ -106,6 +106,18 @@ const ExplorePage = () => {
             key={f.key}
             className={classnames(styles.filterBtn, ageFilter === f.key && styles.filterActive)}
             onClick={() => setAgeFilter(f.key)}
+          >
+            <Text>{f.label}</Text>
+          </View>
+        ))}
+      </View>
+
+      <View className={styles.filterRow}>
+        {DURATION_FILTERS.map((f) => (
+          <View
+            key={f.key}
+            className={classnames(styles.filterBtn, durationFilter === f.key && styles.filterActive)}
+            onClick={() => setDurationFilter(f.key)}
           >
             <Text>{f.label}</Text>
           </View>

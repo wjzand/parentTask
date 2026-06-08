@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { View, Text } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
@@ -35,7 +35,7 @@ const HomePage = () => {
   };
 
   const handleCustom = () => {
-    Taro.navigateTo({ url: '/pages/customTask/index' });
+    Taro.navigateTo({ url: '/pages/custom-task/index' });
   };
 
   const handleStartTimer = () => {
@@ -148,7 +148,7 @@ const HomePage = () => {
           <Text className={styles.entryEmoji}>🌳</Text>
           <Text className={styles.entryLabel}>成长树</Text>
         </View>
-        <View className={styles.entryItem} onClick={() => Taro.navigateTo({ url: '/pages/checkinRecords/index' })}>
+        <View className={styles.entryItem} onClick={() => Taro.navigateTo({ url: '/pages/checkin-records/index' })}>
           <Text className={styles.entryEmoji}>📅</Text>
           <Text className={styles.entryLabel}>打卡记录</Text>
         </View>

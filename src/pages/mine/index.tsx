@@ -1,4 +1,3 @@
-import React from 'react';
 import { View, Text } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import { useUserStore } from '@/store/useUserStore';
@@ -9,7 +8,7 @@ const MinePage = () => {
   const { childInfo, stats, points } = useUserStore();
 
   const handleEditChild = () => {
-    Taro.navigateTo({ url: '/pages/childInfo/index' });
+    Taro.navigateTo({ url: '/pages/child-info/index' });
   };
 
   const handleMenuClick = (url: string) => {
@@ -20,7 +19,7 @@ const MinePage = () => {
     { icon: '🏅', text: '我的徽章', url: '/pages/badges/index', extra: `${stats.totalBadges}枚` },
     { icon: '💰', text: '积分兑换', url: '/pages/points/index', extra: '' },
     { icon: '❤️', text: '我的收藏', url: '/pages/favorites/index', extra: '' },
-    { icon: '📝', text: '自定义任务', url: '/pages/customTask/index', extra: '' },
+    { icon: '📝', text: '自定义任务', url: '/pages/custom-task/index', extra: '' },
     { icon: '🔔', text: '消息通知', url: '/pages/messages/index', extra: '', dot: true },
     { icon: '📊', text: '陪伴报告', url: '/pages/report/index', extra: '' },
     { icon: '⚙️', text: '设置', url: '/pages/settings/index', extra: '' }

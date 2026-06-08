@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { View, Text, ScrollView } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
@@ -79,7 +79,7 @@ const CirclePage = () => {
             <View className={styles.postContent}>
               <Text className={styles.postNote}>{post.checkin.note}</Text>
               <View className={styles.postImages}>
-                {post.checkin.images.map((img, idx) => (
+                {post.checkin.images.map((_img, idx) => (
                   <View key={idx} className={styles.postImage}>
                     <Text className={styles.postImageEmoji}>
                       {TASK_TYPE_EMOJI[post.checkin.taskType]}

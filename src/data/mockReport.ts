@@ -1,4 +1,4 @@
-import { WeeklyReport, MonthlyReport, TaskType } from '@/types';
+import { WeeklyReport, MonthlyReport } from '@/types';
 import { mockBadges } from './mockBadges';
 
 export const mockWeeklyReport: WeeklyReport = {

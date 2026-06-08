@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { View, Text, ScrollView } from '@tarojs/components';
+import { useState } from 'react';
+import { View, Text } from '@tarojs/components';
 import Taro from '@tarojs/taro';
 import classnames from 'classnames';
-import { useUserStore } from '@/store/useUserStore';
 import { mockBadges } from '@/data/mockBadges';
 import { mockCheckins } from '@/data/mockTasks';
 import {
@@ -27,7 +26,6 @@ const currentStage: GrowthStage = 'sapling';
 const totalCheckins = 35;
 
 const GrowthPage = () => {
-  const { stats } = useUserStore();
   const [activeTab, setActiveTab] = useState<'tree' | 'calendar' | 'records'>('tree');
 
   const currentMilestones = GROWTH_MILESTONES.map((m) => ({
