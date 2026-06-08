@@ -1,0 +1,202 @@
+@use '@/styles/variables.scss' as *;
+
+.cardWrapper {
+  perspective: 1200rpx;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  border-radius: $radius-lg;
+  background: $color-bg-card;
+  box-shadow: $shadow-card;
+  transition: transform $transition-base;
+  overflow: hidden;
+}
+
+.cardFlipped {
+  transform: none;
+}
+
+.cardFront {
+  padding: $spacing-lg;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.duration {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.cardCover {
+  @include flex-center;
+  height: 200rpx;
+  background: linear-gradient(135deg, #FFF7CC 0%, #FFE7BA 100%);
+  border-radius: $radius-md;
+  margin-bottom: $spacing-md;
+}
+
+.coverEmoji {
+  font-size: 80rpx;
+}
+
+.taskName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  @include text-ellipsis;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-sm;
+}
+
+.stars {
+  font-size: $font-size-sm;
+  color: #FAAD14;
+}
+
+.age {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  @include text-ellipsis;
+  max-width: 300rpx;
+}
+
+.materials {
+  display: flex;
+  align-items: flex-start;
+  padding: $spacing-sm;
+  background: #FFFBE6;
+  border-radius: $radius-sm;
+  margin-top: $spacing-sm;
+}
+
+.materialsLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  white-space: nowrap;
+  margin-right: $spacing-xs;
+}
+
+.materialsText {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  @include text-ellipsis-multi(2);
+}
+
+.statusBadge {
+  position: absolute;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  padding: 4rpx 16rpx;
+  border-radius: $radius-round;
+}
+
+.statusClaimed {
+  background: rgba($color-primary, 0.15);
+  .statusText { color: $color-primary-dark; }
+}
+
+.statusInProgress {
+  background: rgba($color-success, 0.15);
+  .statusText { color: $color-success; }
+}
+
+.statusCompleted {
+  background: rgba($color-info, 0.15);
+  .statusText { color: $color-info; }
+}
+
+.statusText {
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+.cardBack {
+  padding: $spacing-lg;
+}
+
+.backTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  display: block;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: $spacing-md;
+}
+
+.stepOrder {
+  @include flex-center;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: $radius-round;
+  background: $color-primary;
+  flex-shrink: 0;
+  margin-right: $spacing-sm;
+}
+
+.stepOrderText {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+}
+
+.stepContent {
+  flex: 1;
+  min-width: 0;
+}
+
+.stepTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.stepDesc {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  display: block;
+}
+
+.tipsSection {
+  margin-top: $spacing-lg;
+  padding: $spacing-md;
+  background: #FFF7E6;
+  border-radius: $radius-md;
+}
+
+.tipsTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  color: $color-warning;
+  display: block;
+  margin-bottom: $spacing-sm;
+}
+
+.tipText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  display: block;
+  margin-bottom: $spacing-xs;
+}

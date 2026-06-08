@@ -1,0 +1,27 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  @include flex-center;
+  flex-direction: column;
+  min-height: 100vh;
+  @include page-bg-gradient;
+  gap: $spacing-md;
+  padding: $spacing-xl;
+}
+
+.emoji {
+  font-size: 80rpx;
+}
+
+.title {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.hint {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  text-align: center;
+  line-height: $line-height-loose;
+}

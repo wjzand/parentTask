@@ -1,0 +1,238 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  @include page-bg-gradient;
+  padding-bottom: 120rpx;
+}
+
+.header {
+  padding: $spacing-lg $page-padding 0;
+}
+
+.dateRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-xs;
+}
+
+.dateText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.weatherText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.quoteBox {
+  padding: $spacing-md;
+  background: rgba(255, 197, 61, 0.12);
+  border-radius: $radius-md;
+  margin-bottom: $spacing-lg;
+}
+
+.quoteText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  font-style: italic;
+}
+
+.cardSection {
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.actionButtons {
+  display: flex;
+  gap: $spacing-sm;
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.btnClaim {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.btnChange {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: rgba($color-success, 0.1);
+  color: $color-success;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  border: 2rpx solid rgba($color-success, 0.3);
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.btnCustom {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  color: $color-text-secondary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  border: 2rpx solid $color-border;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.btnDisabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.progressSection {
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.quickEntries {
+  display: flex;
+  justify-content: space-around;
+  padding: $spacing-lg $page-padding;
+  margin: 0 $page-padding;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.entryItem {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.entryEmoji {
+  font-size: 48rpx;
+}
+
+.entryLabel {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.changeHint {
+  text-align: center;
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  margin-top: $spacing-sm;
+  padding: 0 $page-padding;
+}
+
+.timerSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  margin: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+  background: rgba($color-info, 0.08);
+  border-radius: $radius-md;
+}
+
+.timerDisplay {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-info;
+  font-variant-numeric: tabular-nums;
+}
+
+.timerBtn {
+  @include button-reset;
+  padding: 0 $spacing-lg;
+  height: $button-height-sm;
+  border-radius: $radius-button;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.timerStart {
+  background: $color-info;
+  color: $color-text-white;
+}
+
+.timerStop {
+  background: $color-error;
+  color: $color-text-white;
+}
+
+.completedBanner {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xl;
+  margin: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+  background: rgba($color-success, 0.08);
+  border-radius: $radius-lg;
+  gap: $spacing-sm;
+}
+
+.completedEmoji {
+  font-size: 64rpx;
+}
+
+.completedText {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-success;
+}
+
+.completedSubText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.btnCheckin {
+  @include button-reset;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: $color-success;
+  color: $color-text-white;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  padding: 0 $spacing-xl;
+  margin-top: $spacing-sm;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}

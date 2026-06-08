@@ -1,0 +1,326 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  @include page-bg-gradient;
+  padding-bottom: 120rpx;
+}
+
+.tabBar {
+  display: flex;
+  padding: $spacing-sm $page-padding;
+  margin-bottom: $spacing-md;
+  gap: $spacing-sm;
+}
+
+.tabItem {
+  @include button-reset;
+  padding: 0 $spacing-lg;
+  height: $button-height-sm;
+  border-radius: $radius-round;
+  background: $color-bg-card;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  border: 2rpx solid $color-border;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.tabActive {
+  background: $color-success;
+  color: $color-text-white;
+  border-color: $color-success;
+  font-weight: $font-weight-semibold;
+}
+
+.treeSection {
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.treeContainer {
+  position: relative;
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xl $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  min-height: 500rpx;
+  overflow: hidden;
+}
+
+.treeBg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120rpx;
+  background: linear-gradient(180deg, transparent 0%, rgba($color-success, 0.08) 100%);
+  border-radius: 0 0 $radius-lg $radius-lg;
+}
+
+.treeEmoji {
+  font-size: 160rpx;
+  z-index: 1;
+  margin-bottom: $spacing-lg;
+}
+
+.treeStageLabel {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-success;
+  z-index: 1;
+  margin-bottom: $spacing-sm;
+}
+
+.treeCheckinCount {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  z-index: 1;
+  margin-bottom: $spacing-md;
+}
+
+.waterBtn {
+  @include button-reset;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-growth-water 0%, #95DE64 100%);
+  color: $color-text-white;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  padding: 0 $spacing-xl;
+  z-index: 1;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.milestoneSection {
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.milestoneTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  display: block;
+}
+
+.milestoneList {
+  display: flex;
+  justify-content: space-between;
+  padding: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.milestoneItem {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.milestoneDot {
+  @include flex-center;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: $radius-round;
+  border: 3rpx solid $color-border;
+  background: $color-bg-page;
+  transition: all $transition-base;
+}
+
+.milestoneReached {
+  background: $color-success;
+  border-color: $color-success;
+}
+
+.milestoneDotText {
+  font-size: $font-size-xs;
+  color: $color-text-white;
+  font-weight: $font-weight-bold;
+}
+
+.milestoneLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  white-space: nowrap;
+}
+
+.milestoneLabelReached {
+  color: $color-success;
+  font-weight: $font-weight-medium;
+}
+
+.milestoneCount {
+  font-size: 18rpx;
+  color: $color-text-disabled;
+}
+
+.badgeSection {
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.sectionMore {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.badgeGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.badgeItem {
+  @include flex-center;
+  flex-direction: column;
+  width: 120rpx;
+  gap: $spacing-xs;
+}
+
+.badgeIcon {
+  @include flex-center;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: $radius-round;
+  background: #FFF7E6;
+  font-size: 36rpx;
+}
+
+.badgeIconEarned {
+  background: linear-gradient(135deg, #FFD700 0%, #FFC53D 100%);
+}
+
+.badgeName {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  @include text-ellipsis;
+  text-align: center;
+  max-width: 120rpx;
+}
+
+.badgeNameEarned {
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+}
+
+.recordsSection {
+  padding: 0 $page-padding;
+}
+
+.recordItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.recordImage {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, #FFF7CC 0%, #FFE7BA 100%);
+  @include flex-center;
+  flex-shrink: 0;
+  margin-right: $spacing-md;
+}
+
+.recordImageEmoji {
+  font-size: 40rpx;
+}
+
+.recordInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.recordName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  @include text-ellipsis;
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.recordDate {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  display: block;
+}
+
+.recordMood {
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.calendarSection {
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+}
+
+.calendarGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs;
+  padding: $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.calendarDay {
+  @include flex-center;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.calendarChecked {
+  background: rgba($color-success, 0.15);
+  color: $color-success;
+  font-weight: $font-weight-semibold;
+}
+
+.calendarToday {
+  border: 2rpx solid $color-primary;
+}
+
+.calendarEmpty {
+  color: $color-text-disabled;
+}

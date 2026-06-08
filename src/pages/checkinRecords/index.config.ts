@@ -1,0 +1,5 @@
+export default definePageConfig({
+  navigationBarTitleText: '打卡记录',
+  navigationBarBackgroundColor: '#FFFBEB',
+  navigationBarTextStyle: 'black'
+})

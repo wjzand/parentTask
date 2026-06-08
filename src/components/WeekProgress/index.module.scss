@@ -1,0 +1,75 @@
+@use '@/styles/variables.scss' as *;
+
+.container {
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-md;
+}
+
+.title {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.count {
+  font-size: $font-size-sm;
+  color: $color-primary-dark;
+  font-weight: $font-weight-medium;
+}
+
+.days {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dayItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.dayCircle {
+  @include flex-center;
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: $radius-round;
+  border: 2rpx solid $color-border;
+  background: $color-bg-page;
+  transition: all $transition-base;
+}
+
+.dayCompleted {
+  background: $color-success;
+  border-color: $color-success;
+}
+
+.dayToday {
+  border-color: $color-primary;
+  border-width: 3rpx;
+}
+
+.dayCheck {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+  font-weight: $font-weight-bold;
+}
+
+.dayLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.dayLabelToday {
+  color: $color-primary-dark;
+  font-weight: $font-weight-medium;
+}

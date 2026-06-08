@@ -1,0 +1,249 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  @include page-bg-gradient;
+  padding-bottom: 120rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-md $page-padding;
+  margin-bottom: $spacing-sm;
+}
+
+.headerTitle {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.addBtn {
+  @include button-reset;
+  height: $button-height-sm;
+  border-radius: $radius-round;
+  background: rgba($color-primary, 0.12);
+  color: $color-primary-dark;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  padding: 0 $spacing-md;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.membersScroll {
+  padding: 0 $page-padding;
+  margin-bottom: $spacing-lg;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.membersList {
+  display: inline-flex;
+  gap: $spacing-lg;
+  padding: $spacing-sm 0;
+}
+
+.memberItem {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.memberAvatar {
+  @include flex-center;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, #FFF7CC 0%, #FFE7BA 100%);
+  font-size: 36rpx;
+  border: 3rpx solid $color-border;
+}
+
+.memberName {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  @include text-ellipsis;
+  max-width: 88rpx;
+  text-align: center;
+}
+
+.postList {
+  padding: 0 $page-padding;
+}
+
+.postCard {
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+}
+
+.postHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.postAvatar {
+  @include flex-center;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, #FFF7CC 0%, #FFE7BA 100%);
+  font-size: 28rpx;
+  margin-right: $spacing-sm;
+  flex-shrink: 0;
+}
+
+.postAuthor {
+  flex: 1;
+  min-width: 0;
+}
+
+.postAuthorName {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  display: block;
+}
+
+.postTime {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.postTaskTag {
+  @include button-reset;
+  padding: 0 $spacing-sm;
+  height: 40rpx;
+  border-radius: $radius-round;
+  background: rgba($color-primary, 0.12);
+  font-size: $font-size-xs;
+  color: $color-primary-dark;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+.postContent {
+  margin-bottom: $spacing-md;
+}
+
+.postNote {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.postImages {
+  display: flex;
+  gap: $spacing-sm;
+  flex-wrap: wrap;
+}
+
+.postImage {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, #FFF7CC 0%, #FFE7BA 100%);
+  @include flex-center;
+}
+
+.postImageEmoji {
+  font-size: 60rpx;
+}
+
+.postActions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid $color-divider;
+}
+
+.actionBtn {
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+  transition: all $transition-fast;
+
+  &:active {
+    opacity: 0.7;
+  }
+}
+
+.actionLiked {
+  color: $color-error;
+}
+
+.quickComments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+  padding-top: $spacing-sm;
+}
+
+.quickCommentBtn {
+  @include button-reset;
+  padding: 0 $spacing-md;
+  height: 48rpx;
+  border-radius: $radius-round;
+  background: $color-bg-page;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  white-space: nowrap;
+  transition: all $transition-fast;
+
+  &:active {
+    background: rgba($color-primary, 0.1);
+  }
+}
+
+.commentsList {
+  margin-top: $spacing-md;
+  padding-top: $spacing-sm;
+}
+
+.commentItem {
+  margin-bottom: $spacing-sm;
+}
+
+.commentAuthor {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  margin-right: $spacing-xs;
+}
+
+.commentText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.emptyState {
+  @include flex-center;
+  flex-direction: column;
+  padding: 160rpx 0;
+  gap: $spacing-md;
+}
+
+.emptyEmoji {
+  font-size: 80rpx;
+}
+
+.emptyText {
+  font-size: $font-size-md;
+  color: $color-text-tertiary;
+}
