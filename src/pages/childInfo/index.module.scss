@@ -1,27 +1,206 @@
 @use '@/styles/variables.scss' as *;
 
 .page {
-  @include flex-center;
-  flex-direction: column;
   min-height: 100vh;
   @include page-bg-gradient;
-  gap: $spacing-md;
-  padding: $spacing-xl;
+  padding-bottom: 160rpx;
 }
 
-.emoji {
+.avatarSection {
+  @include flex-center;
+  flex-direction: column;
+  padding: $spacing-xl 0;
+  gap: $spacing-sm;
+}
+
+.avatarCircle {
+  @include flex-center;
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
   font-size: 80rpx;
+  border: 4rpx solid rgba($color-primary, 0.3);
 }
 
-.title {
-  font-size: $font-size-lg;
+.avatarHint {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.formSection {
+  margin: 0 $page-padding $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  overflow: hidden;
+}
+
+.formItem {
+  display: flex;
+  align-items: center;
+  padding: $spacing-lg;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.formLabel {
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  font-weight: $font-weight-medium;
+  width: 160rpx;
+  flex-shrink: 0;
+}
+
+.formInput {
+  flex: 1;
+  font-size: $font-size-md;
+  color: $color-text-primary;
+  text-align: right;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.formInput::placeholder {
+  color: $color-text-disabled;
+}
+
+.formValue {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+  text-align: right;
+  flex: 1;
+}
+
+.formArrow {
+  font-size: $font-size-sm;
+  color: $color-text-disabled;
+  margin-left: $spacing-xs;
+  flex-shrink: 0;
+}
+
+.pickerTrigger {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.tagSection {
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.tagTitle {
+  font-size: $font-size-md;
   font-weight: $font-weight-semibold;
   color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  display: block;
 }
 
-.hint {
-  font-size: $font-size-sm;
+.tagHint {
+  font-size: $font-size-xs;
   color: $color-text-tertiary;
-  text-align: center;
+  margin-bottom: $spacing-md;
+  display: block;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.tagItem {
+  @include button-reset;
+  padding: 0 $spacing-lg;
+  height: $button-height-sm;
+  border-radius: $radius-round;
+  background: $color-bg-page;
+  color: $color-text-secondary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  border: 2rpx solid $color-border;
+  transition: all $transition-fast;
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.tagSelected {
+  background: rgba($color-primary, 0.15);
+  color: $color-primary-dark;
+  border-color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.ageDisplay {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
+}
+
+.ageHighlight {
+  color: $color-primary-dark;
+  font-weight: $font-weight-semibold;
+}
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-md $page-padding;
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+  z-index: 100;
+}
+
+.saveBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.infoCard {
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-lg;
+  background: rgba($color-info, 0.06);
+  border-radius: $radius-lg;
+  border: 2rpx solid rgba($color-info, 0.15);
+}
+
+.infoTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-info;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.infoText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
   line-height: $line-height-loose;
+  display: block;
 }

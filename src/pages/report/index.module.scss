@@ -1,27 +1,305 @@
 @use '@/styles/variables.scss' as *;
 
 .page {
-  @include flex-center;
-  flex-direction: column;
   min-height: 100vh;
   @include page-bg-gradient;
-  gap: $spacing-md;
-  padding: $spacing-xl;
+  padding-bottom: 60rpx;
 }
 
-.emoji {
-  font-size: 80rpx;
+.tabBar {
+  display: flex;
+  padding: $spacing-md $page-padding;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-sm;
 }
 
-.title {
+.tabItem {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  color: $color-text-secondary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-medium;
+  border: 2rpx solid $color-border;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.tabActive {
+  background: $color-primary;
+  color: $color-text-primary;
+  border-color: $color-primary;
+  font-weight: $font-weight-semibold;
+}
+
+.dateRange {
+  text-align: center;
+  padding: $spacing-sm $page-padding;
+  margin-bottom: $spacing-md;
+}
+
+.dateText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.overviewCard {
+  display: flex;
+  justify-content: space-around;
+  padding: $spacing-xl $spacing-md;
+  margin: 0 $page-padding $spacing-md;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.overviewItem {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.overviewValue {
+  font-size: $font-size-xxl;
+  font-weight: $font-weight-bold;
+  color: $color-primary-dark;
+}
+
+.overviewLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.section {
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.sectionTitle {
   font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
   color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  display: block;
 }
 
-.hint {
+.moodRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.moodItem {
+  @include flex-center;
+  flex-direction: column;
+  gap: $spacing-xs;
+}
+
+.moodEmoji {
+  font-size: 36rpx;
+}
+
+.moodDay {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.moodBar {
+  width: 40rpx;
+  border-radius: $radius-sm $radius-sm 0 0;
+  background: $color-primary-light;
+}
+
+.typeList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.typeItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.typeEmoji {
+  font-size: $font-size-lg;
+  width: 44rpx;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.typeName {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  width: 120rpx;
+  flex-shrink: 0;
+}
+
+.typeBarBg {
+  flex: 1;
+  height: 24rpx;
+  background: $color-bg-page;
+  border-radius: $radius-round;
+  overflow: hidden;
+}
+
+.typeBarFill {
+  height: 100%;
+  border-radius: $radius-round;
+  transition: width $transition-slow;
+}
+
+.typeCount {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  width: 48rpx;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.radarSection {
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.radarContainer {
+  position: relative;
+  width: 500rpx;
+  height: 500rpx;
+  margin: 0 auto;
+}
+
+.radarBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400rpx;
+  height: 400rpx;
+  transform: translate(-50%, -50%);
+}
+
+.radarRing {
+  position: absolute;
+  border: 1rpx solid $color-divider;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.radarAxis {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rpx;
+  background: $color-divider;
+  transform-origin: top center;
+}
+
+.radarLabel {
+  position: absolute;
+  @include flex-center;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.radarLabelEmoji {
+  font-size: $font-size-sm;
+}
+
+.radarLabelText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+  white-space: nowrap;
+}
+
+.radarValueText {
+  font-size: 18rpx;
+  color: $color-primary-dark;
+  font-weight: $font-weight-semibold;
+}
+
+.radarPolygon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.badgeList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+}
+
+.badgeItem {
+  @include flex-center;
+  flex-direction: column;
+  width: 120rpx;
+  gap: $spacing-xs;
+}
+
+.badgeIcon {
+  @include flex-center;
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: $radius-round;
+  background: linear-gradient(135deg, #FFD700 0%, #FFC53D 100%);
+  font-size: 36rpx;
+}
+
+.badgeName {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  text-align: center;
+  @include text-ellipsis;
+  max-width: 120rpx;
+}
+
+.emptyBadge {
   font-size: $font-size-sm;
   color: $color-text-tertiary;
-  text-align: center;
+}
+
+.shareBtn {
+  @include button-reset;
+  width: 100%;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  margin: 0 $page-padding;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.summaryText {
+  font-size: $font-size-md;
+  color: $color-text-secondary;
   line-height: $line-height-loose;
+  margin-bottom: $spacing-md;
+  display: block;
+}
+
+.highlight {
+  color: $color-primary-dark;
+  font-weight: $font-weight-semibold;
 }

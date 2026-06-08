@@ -1,27 +1,405 @@
 @use '@/styles/variables.scss' as *;
 
 .page {
-  @include flex-center;
-  flex-direction: column;
   min-height: 100vh;
   @include page-bg-gradient;
-  gap: $spacing-md;
-  padding: $spacing-xl;
+  padding-bottom: 160rpx;
 }
 
-.emoji {
-  font-size: 80rpx;
+.coverSection {
+  position: relative;
+  height: 360rpx;
+  background: linear-gradient(135deg, #FFF7CC 0%, #FFE7BA 100%);
+  @include flex-center;
+  flex-direction: column;
 }
 
-.title {
+.coverEmoji {
+  font-size: 120rpx;
+  margin-bottom: $spacing-md;
+}
+
+.coverTypeBadge {
+  position: absolute;
+  top: $spacing-lg;
+  right: $spacing-lg;
+}
+
+.infoCard {
+  margin: -48rpx $page-padding $spacing-md;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+  position: relative;
+  z-index: 1;
+}
+
+.taskName {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-sm;
+  display: block;
+}
+
+.taskDesc {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+  margin-bottom: $spacing-md;
+  display: block;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  flex-wrap: wrap;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.metaLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.metaValue {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 2rpx;
+}
+
+.starItem {
+  font-size: $font-size-sm;
+  color: #FAAD14;
+}
+
+.starEmpty {
+  color: $color-text-disabled;
+}
+
+.section {
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-lg;
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  box-shadow: $shadow-card;
+}
+
+.sectionTitle {
   font-size: $font-size-lg;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  margin-bottom: $spacing-md;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.materialList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.materialItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-md;
+  background: #FFFBE6;
+  border-radius: $radius-md;
+  border: 2rpx solid $color-divider;
+  transition: all $transition-fast;
+}
+
+.materialChecked {
+  background: rgba($color-success, 0.08);
+  border-color: rgba($color-success, 0.3);
+}
+
+.materialCheck {
+  font-size: $font-size-sm;
+  color: $color-text-disabled;
+}
+
+.materialCheckActive {
+  color: $color-success;
+}
+
+.materialName {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  white-space: nowrap;
+}
+
+.materialNameChecked {
+  text-decoration: line-through;
+  color: $color-text-tertiary;
+}
+
+.stepList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+}
+
+.stepOrder {
+  @include flex-center;
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: $radius-round;
+  background: $color-primary;
+  flex-shrink: 0;
+  margin-right: $spacing-md;
+}
+
+.stepOrderText {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.stepOrderDone {
+  background: $color-success;
+}
+
+.stepContent {
+  flex: 1;
+  min-width: 0;
+  padding-top: 4rpx;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: $spacing-xs;
+}
+
+.stepTitle {
+  font-size: $font-size-md;
   font-weight: $font-weight-semibold;
   color: $color-text-primary;
 }
 
-.hint {
+.stepCheckBox {
+  @include button-reset;
+  width: 44rpx;
+  height: 44rpx;
+  border-radius: $radius-sm;
+  border: 2rpx solid $color-border;
+  background: $color-bg-card;
   font-size: $font-size-sm;
-  color: $color-text-tertiary;
-  text-align: center;
+  transition: all $transition-fast;
+}
+
+.stepChecked {
+  background: $color-success;
+  border-color: $color-success;
+  color: $color-text-white;
+}
+
+.stepDesc {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
   line-height: $line-height-loose;
+}
+
+.stepDescDone {
+  color: $color-text-tertiary;
+  text-decoration: line-through;
+}
+
+.tipsList {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.tipItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-xs;
+}
+
+.tipIcon {
+  font-size: $font-size-sm;
+  flex-shrink: 0;
+  margin-top: 2rpx;
+}
+
+.tipText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-loose;
+}
+
+.timerCard {
+  margin: 0 $page-padding $spacing-md;
+  padding: $spacing-lg;
+  background: rgba($color-info, 0.06);
+  border-radius: $radius-lg;
+  border: 2rpx solid rgba($color-info, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timerLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.timerEmoji {
+  font-size: 40rpx;
+}
+
+.timerInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.timerLabel {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.timerValue {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-info;
+  font-variant-numeric: tabular-nums;
+}
+
+.timerBtn {
+  @include button-reset;
+  height: $button-height-md;
+  border-radius: $radius-button;
+  padding: 0 $spacing-xl;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.timerBtnStart {
+  background: $color-info;
+  color: $color-text-white;
+}
+
+.timerBtnStop {
+  background: $color-warning;
+  color: $color-text-white;
+}
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: $spacing-sm;
+  padding: $spacing-md $page-padding;
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: 0 -2rpx 12rpx rgba(0, 0, 0, 0.06);
+  z-index: 100;
+}
+
+.btnClaim {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-primary;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.btnCheckin {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  background: $color-success;
+  color: $color-text-white;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.btnFav {
+  @include button-reset;
+  width: $button-height-lg;
+  height: $button-height-lg;
+  border-radius: $radius-lg;
+  background: $color-bg-page;
+  border: 2rpx solid $color-border;
+  font-size: 40rpx;
+  flex-shrink: 0;
+  transition: all $transition-base;
+
+  &:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  margin-top: $spacing-md;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid $color-divider;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.statIcon {
+  font-size: $font-size-sm;
+}
+
+.statText {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
 }
